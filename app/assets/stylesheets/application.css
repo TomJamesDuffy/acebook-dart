@@ -39,6 +39,11 @@
    z-index: -1
  }
 
+ #open-weather{
+   text-align: left;
+   margin-left: 30px;
+ }
+
  .round-image-50 {
      background-color: white;
      border: 1px solid #red;
@@ -87,4 +92,14 @@
    border-color: coral;
    padding: 20px;
    border-radius: 25px;
+ }
+
+ #quote{
+   max-width: 200px;
+   text-align: left;
+ }
+
+ #chuck_norris{
+   text-align:left;
+   margin-left: 30px;
  }

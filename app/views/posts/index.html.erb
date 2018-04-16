@@ -22,7 +22,19 @@
     <div id="footerBar"></div>
     </br>
     </br>
-
+    <div id="open-weather">
+      <form id="findcity">
+        <input type="text" id="city" placeholder="Enter a city..."></input>
+        <button type="submit">Get Weather</button>
+      </form>
+      <p><span id="displaycity"></span><span id="weather"></span></p>
+    </div>
+    <div id="chuck_norris">
+      <p>CHUCK NORRIS DAILY QUOTE</p>
+      <div id="quote"></div>
+    </div>
+    </br>
+    </br>
     <% if notice %> <p class="notice"><%= notice %></p> <% end %>
     <% if alert %> <p class="alert"><%= alert %></p> <% end %>
     <div id="new-post">
@@ -68,13 +80,15 @@
           <%= form.text_area :body, cols: "50", rows: "5" %>
           <br>
           <%=form.submit "Comment"%>
-          <br>
-          <br>
-          <br>
-          <br>
+        </br>
+        </br>
+        </br>
+        </br>
         <% end %>
       <% end %>
-
     </div>
+    </br>
+    </br>
+    </br>
   </body>
 </html>
