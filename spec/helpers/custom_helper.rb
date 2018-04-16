@@ -35,5 +35,5 @@ end
 
 def create_liked_post
   create_post
-  click_link "Like"
+  click_link "Bullseye"
 end
