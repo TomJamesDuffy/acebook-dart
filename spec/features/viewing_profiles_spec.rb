@@ -1,9 +1,17 @@
+# frozen_string_literal: true
+
+require 'rails_helper'
+
 feature 'viewing user profiles' do
   background do
     # Create a user.
+    # user1 = create(:user, id: 1, email: 'a@a.com', user_name: 'Aaaaa')
     # Create a second user
+    # user2 = create(:user, id: 2, email: 'b@b.com', user_name: 'Bvvvv')
     # Create a post owned by the user.
+    # post1 = create(:post, user_id: 1, message: 'This is a post from u1')
     # Create a post owned by the second user.
+    # post2 = create(:post, user_id: 2, message: 'This is a post from u2')
     # Sign in with the first user.
     # Visit the dashboard.
     # Click the first user's user name

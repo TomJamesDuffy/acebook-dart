@@ -1,3 +1,7 @@
+# frozen_string_literal: true
+
+require 'rails_helper'
+
 feature 'editing user profiles' do
   background do
     # Create a user.
@@ -27,11 +31,11 @@ feature 'editing user profiles' do
     # Expect to not see the 'edit profile' button.
   end
 
-  scenario "a user cannot navigate directly to edit a users profile" do
-    # Directly visit another user’s edit url.
+  scenario 'a user cannot navigate directly to edit a users profile' do
+    # Directly visit another user s edit url.
 
-    # Expect to not see ’Change your profile image:'
+    # Expect to not see: Change your profile image:
     # Expect the path to be the root path.
-    # Expect to see the message, "That profile doesn’t belong to you!"
+    # Expect to see the message: That profile does not belong to you!
   end
 end
