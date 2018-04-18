@@ -34,3 +34,4 @@ feature 'editing user profiles' do
     # Expect the path to be the root path.
     # Expect to see the message, "That profile doesn’t belong to you!"
   end
+end
