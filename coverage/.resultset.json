@@ -693,7 +693,7 @@
         null,
         null
       ],
-      "/Users/CEO/Documents/Coding/MakersAcademy/Projects/Week9/acebook-dart/spec/controllers/posts_controller_spec.rb": [
+
         null,
         null,
         1,
@@ -1068,12 +1068,26 @@
         null,
         null,
         null,
-        null
-      ],
-      "/Users/CEO/Documents/Coding/MakersAcademy/Projects/Week9/acebook-dart/spec/models/like_spec.rb": [
+
+        null,
+        1,
+        null,
+        1,
+        1,
         null,
         null,
         1,
+        1,
+        null,
+        null,
+        1,
+        0,
+        null,
+        null,
+        1,
+        1,
+        0,
+        0,
         null,
         null,
         null,
@@ -1265,6 +1279,6 @@
         null
       ]
     },
-    "timestamp": 1524049048
+
   }
 }
