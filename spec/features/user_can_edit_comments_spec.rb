@@ -7,7 +7,7 @@ RSpec.describe 'Timeline', type: :feature do
   scenario 'User wants to edit a comment' do
     sign_up
     create_comment
-    click_link 'Edit Comment'
+    click_link 'edit_comment'
     fill_in 'body', with: ''
     fill_in 'body', with: 'This is my world, MY WORLD!'
     click_button 'Update Comment'

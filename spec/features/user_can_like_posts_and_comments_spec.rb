@@ -16,7 +16,7 @@ RSpec.describe 'Timeline', type: :feature do
   scenario 'User wants to like a comment' do
     sign_up
     create_comment
-    find(:xpath, "//a/img[@alt='comment_like']/..").click
+    find(:xpath, "//a/img[@id='like_comment']/..").click
     expect(page).to have_content('1')
   end
 end

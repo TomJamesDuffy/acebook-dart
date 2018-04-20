@@ -11,7 +11,7 @@ end
 
 def create_comment
   create_post
-  click_button 'New Comment'
+  click_button 'new_comment'
   fill_in 'comment[body]', with: 'Hello, Mars!'
   click_button 'Comment'
 end
