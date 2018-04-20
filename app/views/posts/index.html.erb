@@ -16,6 +16,8 @@
       </div>
 
       <div class="orientation">
+        <%= link_to 'Profile', user_path(current_user) %>
+        &nbsp; | &nbsp;
         <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
         &nbsp; | &nbsp;
         <%= link_to 'Settings', edit_user_registration_path %>

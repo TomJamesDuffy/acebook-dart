@@ -17,6 +17,8 @@
       <div id='profile_posts'>
       <%= post.message %>
       <p><%= Posted.new(post.created_at).string %></p>
+      <%= image_tag("https://thumb.ibb.co/kbanU7/darts_PNG57.png", :size => "23x23", class: "like-position") %>
+      <%= post.get_upvotes.size %>
       <hr>
       <% post.comments.reverse.each do |comment| %>
         <p><%= comment.body %></p>
@@ -24,5 +26,8 @@
       <% end %>
       </div>
     <% end %>
+    </br>
+    </br>
+    <%= link_to 'Back To Timeline', posts_path %>
   </body>
 </html>
