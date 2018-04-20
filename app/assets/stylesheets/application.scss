@@ -25,19 +25,25 @@
  		top: 0;
    }
 
+   #new_comment {
+     font-size: 10px;
+     margin-left:340px;
+   }
+
  html, body {
      margin: 0;
-     padding: 0
+     padding: 0;
+
  }
 
 
   body {
-    font-family: Avenir Book;
+    font-family: 'Lato', sans-serif;
     font-size: 15px;
     color: #4E387E;
     background-color: #FBF6D9;
     /* background-image: url("Best-Electronic-Dart-Board.jpg"); */
-    text-align: center;
+
   }
 
  h1 {
@@ -46,8 +52,79 @@
    font-weight: 100;
    color: #E82900;
    background-image: url("https://s3.eu-west-2.amazonaws.com/dart-user-avatars/index_images/Dart-board-closeup.jpg");
-   margin: 50px;
-   z-index: -1
+   margin-right: 50px;
+   margin-left: 50px;
+   z-index: -1;
+   text-align: center;
+ }
+
+ .actions {
+   text-align: center; margin: 5px 0;
+   text-decoration:none;
+ }
+
+ .orientation {
+   position:absolute;
+   right:5px;
+   text-align: center; margin: 5px 0;
+   text-decoration:none;
+ }
+
+ .profile-left {
+   margin-top: 10px;
+   position:relative;
+   right:140px;
+ }
+
+ .comment-profile-left {
+   margin-top: 10px;
+   position:relative;
+   right:80px;
+ }
+
+ .like-position {
+   position:relative;
+   top: -5px;
+
+ }
+
+ .post-border {
+   border: 1px solid;
+   border-color:#D3D3D3;
+   border-radius: 5px;
+
+ }
+
+ .comment-border {
+   border: 1px solid;
+   border-color:#D3D3D3;
+   border-radius: 5px;
+   width: 80%;
+   margin-left: 80px;
+ }
+
+ .orientation a:link {
+   text-decoration:none;
+   color: white;
+ }
+
+ .orientation a:visited {
+   text-decoration:none;
+   color: white;
+ }
+
+ .user {
+   position:absolute;
+   left:5px;
+   text-align: center; margin: 5px 0;
+ }
+
+ .alert-position {
+   text-align: center; 
+ }
+
+ .inline-center {
+   display: inline-block;
  }
 
  .round-image-50 {
@@ -59,10 +136,31 @@
      height: 30px;
      width: 30px;
      overflow: hidden;
-     text-align: center;
-     display: inline-flex;
      img { width: 100% }
  }
+
+ .round-image-40 {
+     background-color: white;
+     border: 1px solid #red;
+     border-radius: 40px;
+     -moz-border-radius: 40px;
+     -webkit-border-radius: 40px;
+     height: 25px;
+     width: 25px;
+     overflow: hidden;
+     img { width: 100% }
+ }
+
+ .resize {
+     width: 600px;
+     height: auto;
+ }
+
+ .center {
+    margin: auto;
+    width: 10%;
+}
+
  #headerBar {
      height: 60px;
      background: coral;
@@ -77,20 +175,22 @@
      height: 40px;
      background: green;
      position: relative;
+     margin: auto;
      /* bottom: 0; */
-     width: 100%;
+     width: 80%;
      color: white;
      /* z-index: -1 */
  }
 
  #all-posts {
-   text-align: center;;
+   text-align: center;
    margin: auto;
    width: 45%;
    border: solid 8px;
    border-color: #404B69;
    padding: 20px;
    border-radius: 25px;
+   position: relative;
  }
  #new-post {
    text-align: center;;
