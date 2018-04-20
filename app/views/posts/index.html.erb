@@ -109,29 +109,20 @@ New post
 </p>
 </div>
 <% end %>
-        <% if current_user === comment.user %>
-        <%= link_to 'Edit Comment', edit_post_comment_path(post.id, comment.id)%>
-        <%= link_to 'Delete Comment', post_comment_path(post, comment),
-                                   method: :delete,
-                                   data: {confirm: 'Confirm Delete Comment?'}%>
-        <% end %>
-        <% end %>
-        <% if current_user %>
-        <div class="new_comment_container">
-          <button class="new_comment"> New Comment </button>
 
-        <%= form_with(model: [ post, post.comments.build], class: :comment_form, local: true) do |form| %>
-          <%= form.text_area :body, cols: "50", rows: "5" %>
-          <br>
-          <%=form.submit "Comment"%>
-        <% end %>
-        </div>
-          <br>
-          <br>
-          <br>
-          <br>
-        <% end %>
-      <% end %>
+<% if current_user %>
+<button id="new_comment">
+  comment
+</button>
+<%= form_with(model: [ post, post.comments.build], id: :comment_form, local: true) do |form| %>
+<%= form.text_area :body, cols: "50", rows: "5" %>
+<br>
+<%=form.submit "Comment"%>
+<% end %>
+</div>
+<% end %>
+<% end %>
+
 </div>
 </body>
 </html>
