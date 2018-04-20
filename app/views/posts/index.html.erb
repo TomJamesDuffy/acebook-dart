@@ -4,87 +4,125 @@
     <meta charset="utf-8">
     <title>DART</title>
   </head>
-  <body>
+  <body></div>
+  <h1>DART</h1>
+  <div id="footerBar">
+    <% if user_signed_in? %>
+      <div class="user">
+        <p>
+          <%= image_tag(current_user.avatar.url(:thumb), class: "round-image-50") %>
+          &nbsp; Logged in as
+          <%= current_user.username %></p>
+      </div>
 
-    <div id="toggleThis">Taskbar</div>
-    <div id="headerBar">
-      </br>
-      <% if user_signed_in? %>
-      <%= current_user.username %>
-        <%= current_user.username %>
+      <div class="orientation">
         <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
-        <div class="round-image-50 inline"><%= image_tag(current_user.avatar.url(:thumb)) %></div>
-        <%= link_to current_user.username, edit_user_registration_path %>
+        &nbsp; | &nbsp;
+        <%= link_to 'Settings', edit_user_registration_path %>
       <% else %>
-          <%= link_to 'Sign Up', new_user_registration_path %>
-          <%= link_to 'Login', new_user_session_path %>
+        <%= link_to 'Sign Up', new_user_registration_path %>
+        &nbsp; | &nbsp;
+        <%= link_to 'Login', new_user_session_path %>
       <% end %>
     </div>
-    <h1>DART</h1>
-    <div id="footerBar"></div>
-    </br>
-    </br>
+  </div>
+</br>
+</br>
 
-    <% if notice %> <p class="notice"><%= notice %></p> <% end %>
-    <% if alert %> <p class="alert"><%= alert %></p> <% end %>
-    <div id="new-post">
-      <%= link_to new_post_path do %>
-        New post
-      <% end %>
-    </div>
-    <%= render 'newsFeed' %>
-    </br>
-    <div id="all-posts">
-      <% @posts.reverse.each do |post| %>
-        <p id="user_post">
-          <div class="round-image-50 inline"><%= image_tag(post.user.avatar.url(:thumb)) %></div>
-          @<%= post.user.username %>:
-          <%= post.message %>
-        </p>
-        <%=Posted.new(post.created_at).string%>
-        </br>
+<div id="new-post">
+<%= link_to new_post_path do %>
+New post
+<% end %>
+</div>
+</br>
 
-        <%= link_to image_tag("https://thumb.ibb.co/kbanU7/darts_PNG57.png", :size => "30x30"), like_post_path(post), method: :put %>
-        <%= post.get_upvotes.size %>
+<div class="alert-position">
+  <% if notice %>
+    <p class="notice"><%= notice %></p>
+  <% end %>
+</div>
+<div class="alert-position">
+  <% if alert %>
+    <p class="alert"><%= alert %></p>
+  <% end %>
+</div>
 
-        <% if current_user === post.user%>
-        <%= link_to 'Edit', edit_post_path(post.id)%>
-        <%= link_to 'Delete Post', post_path(post),
-                                   method: :delete%>
-        <hr>
-        <% end %>
+<% @posts.reverse.each do |post| %>
+</br>
+<div id="all-posts">
 
+<div class="post-border">
+<div >
+  <div class="profile-left">
+    <%= image_tag(post.user.avatar.url(:thumb), class: "round-image-50") %>
+    &nbsp;
+    <%= post.user.username %>
+  </div>
+  <div >
+    <%= post.message %>
+  </div>
+</br>
+</div>
 
+<hr style="border-color:#D3D3D3;width:80%;">
+<% if current_user === post.user%>
+<p style="font-size:75%">
+  <%= link_to 'Edit', edit_post_path(post.id), id: 'edit_post'%>
+  &nbsp; | &nbsp;
+  <%= link_to 'Delete', post_path(post), method: :delete, id: 'delete_post'%>
+  &nbsp; | &nbsp;
+  <%=Posted.new(post.created_at).string%>
+  &nbsp; | &nbsp;
+<% end %>
+<%= link_to image_tag("https://thumb.ibb.co/kbanU7/darts_PNG57.png", :size => "23x23", class: "like-position"), like_post_path(post), method: :put, id: 'like_post' %>
+<%= post.get_upvotes.size %>
+</p>
+</div>
 
-        <% post.comments.reverse.each do |comment|%>
+<% post.comments.each do |comment|%>
+</br>
 
-          <p><%= comment.body%></p>
-          <p><%=Posted.new(comment.created_at).string%></p>
+<div class="comment-border">
+<div>
+<div class ="comment-profile-left">
+  <p style="font-size:75%"><%= image_tag(comment.user.avatar.url(:thumb), class: "round-image-40") %>
+  &nbsp;
+  <%= comment.user.username %>
+</div>
+<div >
+  <p style="font-size:75%"><%= comment.body %></p>
+</div>
+</div>
 
-        <%= link_to image_tag("https://thumb.ibb.co/kbanU7/darts_PNG57.png", :size => "30x30", alt: "comment_like"), like_comment_path(comment), method: :put %>
-        <%= comment.get_upvotes.size %>
+<hr style="border-color:#D3D3D3;width:80%;">
+<% if current_user === comment.user%>
+<p style="font-size:75%">
+  <%= link_to 'Edit', edit_post_comment_path(post.id, comment.id), id: 'edit_comment'%>
+  &nbsp; | &nbsp;
+  <%= link_to 'Delete', post_comment_path(post, comment), method: :delete, data: {confirm: 'Confirm Delete Comment?'}, id: 'delete_comment'%>
+  &nbsp; | &nbsp;
+  <%=Posted.new(comment.created_at).string%>
+  &nbsp; | &nbsp;
+<% end %>
+<%= link_to image_tag("https://thumb.ibb.co/kbanU7/darts_PNG57.png", :size => "23x23", class: "like-position", id: 'like_comment'), like_comment_path(comment), method: :put %>
+<%= comment.get_upvotes.size %>
+</p>
+</div>
+<% end %>
 
-        <% if current_user === comment.user %>
-        <%= link_to 'Edit Comment', edit_post_comment_path(post.id, comment.id)%>
-        <%= link_to 'Delete Comment', post_comment_path(post, comment),
-                                   method: :delete,
-                                   data: {confirm: 'Confirm Delete Comment?'}%>
-        <% end %>
-        <% end %>
-        <% if current_user %>
-        <button id="new_comment"> New Comment </button>
-        <%= form_with(model: [ post, post.comments.build], id: :comment_form, local: true) do |form| %>
-          <%= form.text_area :body, cols: "50", rows: "5" %>
-          <br>
-          <%=form.submit "Comment"%>
-        <% end %>
-          <br>
-          <br>
-          <br>
-          <br>
-        <% end %>
-      <% end %>
+<% if current_user %>
+<button id="new_comment">
+  comment
+</button>
+<%= form_with(model: [ post, post.comments.build], id: :comment_form, local: true) do |form| %>
+<%= form.text_area :body, cols: "50", rows: "5" %>
+<br>
+<%=form.submit "Comment"%>
+<% end %>
+</div>
+<% end %>
+<% end %>
 
-    </div>
-  </body>
+</div>
+</body>
 </html>

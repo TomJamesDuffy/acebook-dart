@@ -6,7 +6,7 @@ RSpec.describe "Timeline", type: :feature do
     create_post
     my_link = find(:xpath, "//a[contains(@href,'/like')]")
     my_link.click
-    click_link 'Delete Post'
+    click_link 'delete_post'
     expect(page).not_to have_content("Hello, world!")
   end
 end
