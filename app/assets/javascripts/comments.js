@@ -6,7 +6,7 @@
 	  $($new_comment_container).click(function() {
 	    var dd = $(this).find(".comment_form");
 	    if (dd.is(':visible')) {
-	      dd.slideUp('medium');
+	      // dd.slideUp('medium');
 	    } else {
 	      dd.slideDown('medium');
 	    }
